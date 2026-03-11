@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hanatsu Guide Book</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-wrap">
+    <section class="book-shell" aria-label="หนังสือแนะนำภาพ">
+      <header class="book-header">
+        <p class="jp">案内書 / Guide Book</p>
+        <h1>Hanatsu Photo Book</h1>
+        <p class="subtitle">รวมภาพแนะนำ เรียงลำดับตามหน้า</p>
+      </header>
+
+      <section class="book-pages" id="bookPages" aria-live="polite">
+        <article class="book-page" id="leftPage">
+          <div class="paper-pattern"></div>
+          <img id="leftImage" src="img/1.png" alt="ภาพหน้า 1" />
+        </article>
+
+        <article class="book-page" id="rightPage">
+          <div class="paper-pattern"></div>
+          <img id="rightImage" src="img/2.png" alt="ภาพหน้า 2" />
+        </article>
+      </section>
+
+      <footer class="book-controls">
+        <button id="prevBtn" class="nav-btn" type="button" aria-label="หน้าก่อน">
+          <span class="nav-icon" aria-hidden="true">←</span>
+          <span class="nav-label">หน้าก่อน</span>
+        </button>
+        <p id="pageIndicator" class="page-indicator">หน้า 1 / 12</p>
+        <button id="nextBtn" class="nav-btn" type="button" aria-label="หน้าถัดไป">
+          <span class="nav-label">หน้าถัดไป</span>
+          <span class="nav-icon" aria-hidden="true">→</span>
+        </button>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
