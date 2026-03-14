@@ -1,4 +1,39 @@
-const images = Array.from({ length: 12 }, (_, index) => `img/${index + 1}.png`);
+const imageFiles = [
+  "1.png",
+  "2สารบัญ.png",
+  "3แนะนำโรงแรม.png",
+  "4แนะนำโรงแรม.png",
+  "5แนะนำโรงแรม.png",
+  "6อาหารโรงแรม.png",
+  "7อาหารโรงแรม.png",
+  "8อาหารโรงแรม.png",
+  "9อาหารโรงแรม.png",
+  "10อาหารโรงแรม.png",
+  "11อาหารโรงแรม.png",
+  "12แนะนำสำรับอาหา.png",
+  "13แนะนำสำรับอาหา.png",
+  "14แนะนำสำรับอาหา.png",
+  "15แนะนำสำรับอาหา.png",
+  "16ของท้องถิ่น.png",
+  "17ของท้องถิ่น.png",
+  "18ของท้องถิ่น.png",
+  "19ของท้องถิ่น.png",
+  "20ของท้องถิ่น.png",
+  "21ของท้องถิ่น.png",
+  "22ของท้องถิ่น.png",
+  "23ของท้องถิ่น.png",
+  "24อาหารโรงแรม.png",
+];
+
+function getLeadingNumber(fileName) {
+  const match = fileName.match(/^(\d+)/);
+  return match ? Number.parseInt(match[1], 10) : Number.POSITIVE_INFINITY;
+}
+
+const images = imageFiles
+  .slice()
+  .sort((a, b) => getLeadingNumber(a) - getLeadingNumber(b) || a.localeCompare(b, "th"))
+  .map((fileName) => `img/${fileName}`);
 
 const bookPages = document.getElementById("bookPages");
 const leftPage = document.getElementById("leftPage");
@@ -55,7 +90,7 @@ function updatePage() {
     setImage(leftImage, currentPage);
     rightPage.classList.add("is-empty");
     bookPages.classList.add("single-mode");
-    pageIndicator.textContent = `หน้า ${currentPage} / ${images.length}`;
+    pageIndicator.textContent = `pages ${currentPage} / ${images.length}`;
   } else {
     const leftPageNumber = currentIndex + 1;
     const rightPageNumber = leftPageNumber + 1;
@@ -63,7 +98,7 @@ function updatePage() {
     setImage(rightImage, rightPageNumber);
     rightPage.classList.remove("is-empty");
     bookPages.classList.remove("single-mode");
-    pageIndicator.textContent = `หน้า ${leftPageNumber}-${rightPageNumber} / ${images.length}`;
+    pageIndicator.textContent = `pages ${leftPageNumber}-${rightPageNumber} / ${images.length}`;
   }
 
   updateControls();
