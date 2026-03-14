@@ -30,10 +30,14 @@ function getLeadingNumber(fileName) {
   return match ? Number.parseInt(match[1], 10) : Number.POSITIVE_INFINITY;
 }
 
+function toImageUrl(fileName) {
+  return `img/${encodeURIComponent(fileName)}`;
+}
+
 const images = imageFiles
   .slice()
   .sort((a, b) => getLeadingNumber(a) - getLeadingNumber(b) || a.localeCompare(b, "th"))
-  .map((fileName) => `img/${fileName}`);
+  .map((fileName) => toImageUrl(fileName));
 
 const bookPages = document.getElementById("bookPages");
 const leftPage = document.getElementById("leftPage");
